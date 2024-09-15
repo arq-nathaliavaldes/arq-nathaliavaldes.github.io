@@ -64,50 +64,32 @@
     <meta name="generator" content="WPML ver:4.6.11 stt:1,2;" />
   </head>
   <body data-rsssl="1" class="clearfix">
-    <div class="bg-light">
-      <nav
-        class="navbar navbar-light fixed-top bg-white navbar-expand-md"
-        role="navigation"
-      >
-        <div class="container-fluid p-relative px-0">
-          <div class="p-md-absolute">
-            <img
-              alt="Nathalia Valdés logo"
-              src="../img/logo.png"
-              class="img-fluid mx-auto brighten logo d-none d-md-inline"
-              style="width: 15%"
-            />
-          </div>
-          <div
-            id="bs-example-navbar-collapse-1"
-            class="collapse navbar-collapse ml-auto w-100 justify-content-center"
+    <!-- Top bar -->
+    <header class="navbar is-fixed-top">
+      <div class="container">
+        <div class="navbar-brand">
+          <a
+            role="button"
+            class="navbar-burger"
+            id="burger"
+            data-target="navbarMenuHeroC"
           >
-            <ul
-              id="menu-main-menu-es"
-              class="navbar-nav text d-flex align-items-end navbar-nav ml-lg-auto pt-md-5 pb-md-1 mx-auto"
-            ></ul>
-          </div>
-          <div class="p-md-absolute social-position">
-            <a
-              class="ml-1 ml-md-2 noeffect"
-              href="https://www.linkedin.com/in/nathalia-vald%C3%A9s-642894310/"
-              target="_blank"
-              title=""
-            >
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a
-              class="ml-1 ml-md-2 noeffect"
-              href="https://www.instagram.com/nathivaldes98"
-              target="_blank"
-              title=""
-            >
-              <i class="fab fa-instagram fa-2x"></i>
-            </a>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="/">Proyectos</a>
+            <a class="navbar-item" href="/about/">Acerca de mi</a>
+            <a class="navbar-item" href="/contact/">Contacto</a>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
     <div id="main">
       <div class="container">
         <div id="Resume" class="content-tab">
@@ -1034,6 +1016,28 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(
+          document.querySelectorAll(".navbar-burger"),
+          0
+        );
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach((el) => {
+          el.addEventListener("click", () => {
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle("is-active");
+            $target.classList.toggle("is-active");
+          });
+        });
+      });
+    </script>
+    <script>
       filterSelection("all");
 
       function filterSelection(c) {
@@ -1132,6 +1136,22 @@
                 ? target
                 : $("[name=" + this.hash.slice(1) + "]");
               if (target.length) {
+                event.preventDefault();
+                $("html, body").animate(
+                  {
+                    scrollTop: target.offset().top - 135,
+                  },
+                  600,
+                  function () {
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) {
+                      return false;
+                    } else {
+                      $target.attr("tabindex", "-1");
+                      $target.focus();
+                    }
+                  }
                 );
               }
             }

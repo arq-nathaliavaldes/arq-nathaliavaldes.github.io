@@ -1,7 +1,7 @@
 /* MAIN */
 
 * {-webkit-transition: all 0.4s;-moz-transition: all 0.4s;-ms-transition: all 0.4s;-o-transition: all 0.4s;transition: all 0.4s;}
-body, input {-webkit-font-smoothing: antialiased;font-variant-ligatures: no-common-ligatures;font-family: 'Roboto', sans-serif;}
+body, input {-webkit-font-smoothing: antialiased;font-variant-ligatures: no-common-ligatures;font-family: 'Poppins';}
 
 #main {margin-top: 110px;}
 
@@ -9,8 +9,13 @@ body, input {-webkit-font-smoothing: antialiased;font-variant-ligatures: no-comm
     #main {margin-top: 60px;}
 }
 
+
 .m-pagetransition {
     visibility:hidden;
+}
+
+a:hover {
+    color:rgb(38, 101, 249);
 }
 
 /* TITLES */
@@ -98,7 +103,6 @@ strong, .strong, b {font-weight: 500;}
 
 .filterDiv {
 	float: left;
-	background-color: #f5f5f5;
 	display: none;
 }
 
@@ -114,31 +118,32 @@ strong, .strong, b {font-weight: 500;}
     filter: grayscale(100%);
 }
 
+.image-overlay {
+    position: relative;
+}
 
-.info_hover {
+.overlay {
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     background: rgba(77,96,96, 0.75);
     opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    color: white;
 }
 
-.info_hover:hover {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(77,96,96, 0.75);
-    opacity: 1;
-}
 
-.info {
+.overlay-info {
     position: absolute;
     bottom: 15px;
     left: 15px;
+}
+
+
+.overlay:hover {
+    opacity: 1;
 }
 
 .tint:before{
@@ -352,6 +357,11 @@ iframe {
     padding: 0;
 }
 
+.navbar-item:hover {
+    color:rgb(38, 101, 249) !important;
+    background-color:rgba(255, 255, 255, 0) !important;
+}
+
 .wpml-ls-legacy-dropdown a {
     border: 0px !important;
 }
@@ -531,10 +541,18 @@ iframe {
 
 
 .btn {
+    font-size: medium;
+    background-color: #ffffff00;
+    border-color: #ffffff00;
     border-radius: 0px;
-    letter-spacing: 1.2px;
     padding: .475rem 2.75rem;
-    font-size: 11pt;
+    cursor:pointer;
+    font-family: 'Poppins';
+    color: #4a4a4a;
+}
+
+.btn:hover {
+    color:rgb(38, 101, 249) !important;
 }
 
 .btn-second-line {
@@ -560,7 +578,7 @@ iframe {
 .btn-second-lineW:hover, .btn-second-lineW:active{
     color: #fff !important;
     border: solid 1.5pt #fff !important;
-}
+} */
 
 /* SLIDER */
 
